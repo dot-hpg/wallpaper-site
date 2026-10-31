@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deewar Wall Atelier</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Custom printed wallpaper, designed for your wall, measured at your home and installed in a day. Free site visit and digital mock-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an atelier lookbook. Jharokha (arched window) frames carry every artwork; quiet limestone ground lets the prints be loud. */
+:root{
+  --bg:#ECEEE9; --surface:#F8F9F6; --ink:#16201D; --muted:#56625C; --line:#CDD3CC;
+  --haldi:#B97A10; --haldi-soft:#F3DDAE; --peacock:#0E5A57; --on-accent:#1A1306; --wa:#127C4C;
+  --display:"Rozha One", "Bodoni 72", "Didot", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r-arch: 999px 999px 10px 10px;
+  --wrap: 1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1513; --surface:#17201D; --ink:#E9ECE6; --muted:#9AA59F; --line:#2B3632;
+  --haldi:#E5A93C; --haldi-soft:#3A2E17; --peacock:#5CBDB5; --on-accent:#1A1306; --wa:#3BC37F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1513; --surface:#17201D; --ink:#E9ECE6; --muted:#9AA59F; --line:#2B3632;
+  --haldi:#E5A93C; --haldi-soft:#3A2E17; --peacock:#5CBDB5; --on-accent:#1A1306; --wa:#3BC37F; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:clamp(17px,1.6vw,19px);color:var(--muted);max-width:60ch}
+section{padding-block:clamp(64px,9vw,120px)}
+:focus-visible{outline:2px solid var(--haldi);outline-offset:3px;border-radius:4px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--body);padding:15px 22px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-solid{background:var(--ink);color:var(--bg)}
+.btn-wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn-haldi{background:var(--haldi);border-color:var(--haldi);color:var(--on-accent)}
+.btn-sm{padding:10px 16px;font-size:14px}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-mark{width:26px;height:32px;border-radius:999px 999px 3px 3px;background:conic-gradient(from 200deg,var(--peacock),var(--haldi),#C2513F,var(--peacock));flex:none}
+.brand-name{font-family:var(--display);font-size:26px;line-height:1}
+.brand-sub{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-weight:500;font-size:15px}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px}
+@media (max-width:980px){.nav-links{display:none}.nav-cta{margin-left:auto}}
+@media (max-width:520px){.nav-cta .btn-call{display:none}.brand-sub{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(40px,6vw,80px) clamp(56px,7vw,96px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(48px,7.4vw,104px)}
+.hero h1 em{font-style:normal;color:var(--haldi)}
+.hero .lede{margin-top:22px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;padding-top:22px;border-top:1px solid var(--line)}
+.fact b{display:block;font-family:var(--display);font-size:28px;font-weight:400;line-height:1.1}
+.fact span{font-size:13px;color:var(--muted)}
+.arches{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:end;min-width:0}
+.arch{position:relative;border-radius:var(--r-arch);overflow:hidden;background:var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.arch canvas{display:block;width:100%;height:100%}
+.arches .arch:nth-child(1){aspect-ratio:3/5.4}
+.arches .arch:nth-child(2){aspect-ratio:3/6.4}
+.arches .arch:nth-child(3){aspect-ratio:3/4.8}
+.arch-tag{position:absolute;left:10px;right:10px;bottom:10px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(6px);border-radius:8px;padding:7px 10px;font-size:12px;line-height:1.3}
+.arch-tag b{display:block;font-weight:600}
+.arch-tag span{color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.arches{max-width:560px}}
+
+/* Ribbon */
+.ribbon{border-block:1px solid var(--line);overflow:hidden;padding-block:16px;background:var(--surface)}
+.ribbon-track{display:flex;gap:48px;width:max-content;animation:slide 40s linear infinite;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ribbon-track span::before{content:"◆";color:var(--haldi);margin-right:14px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Section head */
+.shead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+.shead h2{font-size:clamp(38px,5vw,68px);margin-top:10px}
+.shead .lede{max-width:46ch}
+
+/* Gallery */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font:500 14px/1 var(--body);padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:34px 22px}
+.card{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card .arch{aspect-ratio:3/4.3}
+.card .arch canvas{transition:transform .6s ease}
+.card:hover .arch canvas{transform:scale(1.04)}
+.card-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card h3{font-size:25px}
+.card .mood{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .from{font-size:13px;color:var(--muted);white-space:nowrap}
+.swatches{display:flex;gap:8px;align-items:center}
+.sw{width:22px;height:22px;border-radius:50%;border:2px solid var(--surface);outline:1px solid var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{outline:2px solid var(--ink)}
+.sw-name{font-size:13px;color:var(--muted);margin-left:4px}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.linkbtn{font:600 14px/1 var(--body);background:none;border:0;padding:6px 0;color:var(--ink);cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--haldi);text-decoration-thickness:2px}
+
+/* Visualiser */
+.viz{background:var(--surface);border-block:1px solid var(--line)}
+.viz-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+.stage{position:relative;border-radius:14px;overflow:hidden;background:var(--line);aspect-ratio:1200/760}
+.stage canvas{display:block;width:100%;height:100%}
+.dim{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:12px;background:rgba(15,21,19,.72);color:#fff;padding:7px 10px;border-radius:6px;letter-spacing:.04em}
+.panel{display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.field .lbl{font-weight:600;font-size:14px}
+select,input[type=text],input[type=tel],input[type=number],textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+textarea{min-height:96px;resize:vertical}
+input[type=range]{width:100%;accent-color:var(--haldi)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.viz-price{border-top:1px solid var(--line);padding-top:18px}
+.viz-price b{font-family:var(--display);font-size:34px;font-weight:400;display:block;line-height:1.1}
+.viz-price span{font-size:13px;color:var(--muted)}
+@media (max-width:900px){.viz-grid{grid-template-columns:1fr}}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--haldi);letter-spacing:.1em}
+.step h3{font-size:24px}
+.step p{font-size:15px;color:var(--muted)}
+.step .t{font-family:var(--mono);font-size:12px;color:var(--ink);margin-top:auto}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* Pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.tier.feature{border:2px solid var(--haldi);position:relative}
+.tier.feature::before{content:"Most chosen";position:absolute;top:-12px;left:24px;background:var(--haldi);color:var(--on-accent);font:600 12px/1 var(--body);padding:6px 10px;border-radius:999px}
+.tier .tname{font-family:var(--display);font-size:32px;line-height:1}
+.tier .tmat{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.price{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.price small{font-size:14px;color:var(--muted)}
+.price b{font-family:var(--display);font-weight:400;font-size:48px;line-height:1}
+.tier ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.tier li{display:flex;gap:10px}
+.tier li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--peacock)}
+.tier .eg{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.tier .eg b{color:var(--ink);font-variant-numeric:tabular-nums}
+.addons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:28px}
+.addon{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.addon b{font-variant-numeric:tabular-nums;font-size:18px}
+.addon span{font-size:14px;color:var(--muted)}
+.fine{font-size:13px;color:var(--muted);margin-top:16px;max-width:90ch}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}.addons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Estimator */
+.est{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;margin-top:56px;background:var(--ink);color:var(--bg);border-radius:20px;padding:clamp(22px,4vw,44px)}
+.est h3{font-size:clamp(30px,3.5vw,44px)}
+.est .lede{color:color-mix(in srgb,var(--bg) 70%,transparent);margin-top:10px}
+.est-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
+.est-form .full{grid-column:1/-1}
+.est label{font-size:13px;font-weight:600;color:color-mix(in srgb,var(--bg) 80%,transparent);display:block;margin-bottom:6px}
+.est input,.est select{background:color-mix(in srgb,var(--bg) 8%,var(--ink));color:var(--bg);border-color:color-mix(in srgb,var(--bg) 22%,var(--ink))}
+.checks{display:flex;flex-wrap:wrap;gap:16px;font-size:14px}
+.checks label{display:flex;align-items:center;gap:8px;margin:0;font-weight:500}
+.checks input{accent-color:var(--haldi);width:18px;height:18px}
+.receipt{background:color-mix(in srgb,var(--bg) 6%,var(--ink));border:1px solid color-mix(in srgb,var(--bg) 18%,var(--ink));border-radius:14px;padding:22px;font-variant-numeric:tabular-nums;display:flex;flex-direction:column;gap:10px;min-width:0}
+.rline{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.rline span:first-child{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.rtotal{border-top:1px dashed color-mix(in srgb,var(--bg) 30%,var(--ink));padding-top:14px;margin-top:4px}
+.rtotal b{font-family:var(--display);font-weight:400;font-size:clamp(34px,4vw,46px);color:var(--haldi);line-height:1;display:block}
+.rtotal span{font-size:13px;color:color-mix(in srgb,var(--bg) 65%,transparent)}
+@media (max-width:860px){.est{grid-template-columns:1fr}}
+@media (max-width:420px){.est-form{grid-template-columns:1fr}}
+
+/* Spaces */
+.spaces{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.space{display:flex;flex-direction:column;gap:10px}
+.space .thumb{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--line)}
+.space .thumb canvas{width:100%;height:100%;display:block}
+.space h3{font-size:24px}
+.space p{font-size:15px;color:var(--muted)}
+@media (max-width:900px){.spaces{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.spaces{grid-template-columns:1fr}}
+
+/* Bespoke band */
+.bespoke{position:relative;overflow:hidden;color:#fff}
+.bespoke canvas.bg{position:absolute;inset:0;width:100%;height:100%}
+.bespoke .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,14,12,.86),rgba(10,14,12,.55) 60%,rgba(10,14,12,.2))}
+.bespoke .wrap{position:relative}
+.bespoke h2{font-size:clamp(40px,5.5vw,76px);max-width:14ch}
+.bespoke p{max-width:52ch;margin-top:18px;font-size:18px;color:rgba(255,255,255,.82)}
+.bespoke ul{margin:24px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.bespoke li{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:14px}
+.bespoke .hero-ctas .btn{border-color:#fff;color:#fff}
+.bespoke .hero-ctas .btn-haldi{color:#1A1306;border-color:#E5A93C;background:#E5A93C}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px}
+details{border-top:1px solid var(--line);padding-block:18px}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--haldi);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--muted);max-width:65ch}
+@media (max-width:860px){.faq{grid-template-columns:1fr;gap:24px}}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px}
+.contact h2{font-size:clamp(40px,5.5vw,76px)}
+.lines{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.cline{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;flex-wrap:wrap}
+.cline .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cline .v{font-size:19px;font-weight:600;user-select:all;font-variant-numeric:tabular-nums}
+.cline .acts{display:flex;gap:8px}
+form.enq{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+form.enq .full{grid-column:1/-1}
+.err{color:#C2513F;font-size:13px;min-height:1em}
+.sent{grid-column:1/-1;background:var(--haldi-soft);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.sent pre{white-space:pre-wrap;font-family:var(--mono);font-size:13px;margin:0;max-height:220px;overflow:auto}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:460px){form.enq{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:40px 110px;font-size:14px;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;padding:14px 18px;border-radius:999px;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.fab svg{width:22px;height:22px}
+@media (max-width:520px){.fab span{display:none}.fab{padding:15px}}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;z-index:80}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Deewar home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><span class="brand-name" data-brand>Deewar</span><span class="brand-sub">Printed wall atelier</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#designs">Designs</a><a href="#try">Try on your wall</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-sm btn-call" data-tel href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+      <a class="btn btn-sm btn-wa" data-wa target="_blank" rel="noopener" href="#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Custom printed wallpaper · <span data-city>Hyderabad</span></p>
+      <h1>Your wall, printed like a <em>work of art.</em></h1>
+      <p class="lede">Original wallpaper designs printed to the exact size of your wall, then installed by our own team in a single day. Pick a design, change its colours, or bring us your own idea.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" data-wa target="_blank" rel="noopener" href="#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-solid" href="#contact">Book a free site visit</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact"><b>₹120</b><span>per sq ft, installed, from</span></div>
+        <div class="fact"><b>1 day</b><span>to install a feature wall</span></div>
+        <div class="fact"><b>Free</b><span>measurement &amp; digital mock-up</span></div>
+      </div>
+    </div>
+    <div class="arches" id="heroArches" aria-label="Featured designs"></div>
+  </div>
+</section>
+
+<div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbon"></div></div>
+
+<section id="designs">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">The collection</p><h2>Ten originals. Endless colourways.</h2></div>
+      <p class="lede">Every design is drawn in-house and printed at full resolution for your wall size, so nothing repeats awkwardly or blurs. Tap a colour dot to recolour a design.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter designs"></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="viz" id="try">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">Wall visualiser</p><h2>See it in your room before we print.</h2></div>
+      <p class="lede">Choose a design, a colourway and a room. Adjust the pattern scale the way we do for your real mock-up.</p>
+    </div>
+    <div class="viz-grid">
+      <div class="stage"><canvas id="room" aria-label="Room preview with selected wallpaper"></canvas><div class="dim" id="dimTag">Feature wall · 12 ft × 9 ft · 108 sq ft</div></div>
+      <div class="panel">
+        <div class="field"><label for="vDesign">Design</label><select id="vDesign"></select></div>
+        <div class="field"><span class="lbl">Colourway</span><div class="swatches" id="vSwatches"></div></div>
+        <div class="field"><span class="lbl">Room</span><div class="seg" id="vRoom" role="group" aria-label="Room"></div></div>
+        <div class="field"><label for="vScale">Pattern scale</label><input type="range" id="vScale" min="0.5" max="1.8" step="0.05" value="1"></div>
+        <div class="viz-price"><span>This 108 sq ft wall in Canvas Texture, installed</span><b id="vPrice">₹18,360</b><span>Indicative, including GST. Exact quote after measurement.</span></div>
+        <div class="card-actions"><button class="btn btn-haldi btn-sm" id="vEnquire" type="button">Enquire about this look</button><a class="btn btn-sm" href="#pricing">Price my wall</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">How it works</p><h2>From first message to finished wall.</h2></div>
+      <p class="lede">Most walls go from enquiry to installed in about a week. You approve every step before anything is printed.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">STEP 1</span><h3>Say hello</h3><p>Call or WhatsApp us with a photo of your wall and the look you like.</p><span class="t">Same day reply</span></div>
+      <div class="step"><span class="n">STEP 2</span><h3>Free site visit</h3><p>We measure every wall, check for damp and cracks, and bring material samples to feel.</p><span class="t">Within 48 hours</span></div>
+      <div class="step"><span class="n">STEP 3</span><h3>Digital mock-up</h3><p>You get your design on a photo of your own wall, with colours and scale adjusted until you love it.</p><span class="t">1 to 2 days</span></div>
+      <div class="step"><span class="n">STEP 4</span><h3>Print to size</h3><p>Printed with eco-solvent or latex inks on your chosen material, cut to the inch.</p><span class="t">3 to 5 days</span></div>
+      <div class="step"><span class="n">STEP 5</span><h3>Install &amp; clean up</h3><p>Our installers prep, paste and finish the wall, and leave your room clean.</p><span class="t">Usually 1 day</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">Pricing</p><h2>Honest per-square-foot pricing.</h2></div>
+      <p class="lede">Prices are per square foot of wall, printed to your size, including GST. Installation is a separate line so you always see what you pay for.</p>
+    </div>
+    <div class="tiers" id="tiers"></div>
+    <div class="addons">
+      <div class="addon"><b>₹25 / sq ft</b><span>Professional installation</span></div>
+      <div class="addon"><b>Free</b><span>Installation on orders above 200 sq ft</span></div>
+      <div class="addon"><b>₹12 / sq ft</b><span>Wall prep: putty patch &amp; primer, if needed</span></div>
+      <div class="addon"><b>From ₹4,999</b><span>Bespoke artwork, adjusted against your order</span></div>
+    </div>
+    <p class="fine">Measurement and your first digital mock-up are free within city limits. Minimum order value ₹6,000. Prices are indicative and can change with wall condition, height above 10 ft, and travel outside the city.</p>
+
+    <div class="est" id="estimator">
+      <div>
+        <h3>Price my wall</h3>
+        <p class="lede">Enter your wall in feet. We add 10% for pattern matching and trimming, as every installer does.</p>
+        <div class="est-form">
+          <div><label for="eW">Wall width (ft)</label><input type="number" id="eW" min="1" max="200" step="0.5" value="12" inputmode="decimal"></div>
+          <div><label for="eH">Wall height (ft)</label><input type="number" id="eH" min="1" max="30" step="0.5" value="9" inputmode="decimal"></div>
+          <div><label for="eN">Number of walls this size</label><input type="number" id="eN" min="1" max="20" step="1" value="1"></div>
+          <div><label for="eO">Doors &amp; windows to skip (sq ft)</label><input type="number" id="eO" min="0" max="2000" step="1" value="0"></div>
+          <div class="full"><label for="eM">Material</label><select id="eM"></select></div>
+          <div class="full checks">
+            <label><input type="checkbox" id="eI" checked> Include installation</label>
+            <label><input type="checkbox" id="eP"> Wall needs prep</label>
+          </div>
+        </div>
+      </div>
+      <div class="receipt" aria-live="polite">
+        <div class="rline"><span>Wall area</span><span id="rArea">108 sq ft</span></div>
+        <div class="rline"><span>Printed area (+10%)</span><span id="rBill">119 sq ft</span></div>
+        <div class="rline"><span>Print &amp; material</span><span id="rPrint">₹0</span></div>
+        <div class="rline"><span>Installation</span><span id="rInst">₹0</span></div>
+        <div class="rline"><span>Wall prep</span><span id="rPrep">₹0</span></div>
+        <div class="rtotal"><b id="rTotal">₹0</b><span id="rRange">Likely range</span></div>
+        <button class="btn btn-haldi" id="eSend" type="button" style="justify-content:center;margin-top:8px">Send this estimate to us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bespoke" id="bespoke">
+  <canvas class="bg" id="bespokeBg" aria-hidden="true"></canvas>
+  <div class="veil"></div>
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(255,255,255,.7)">Bespoke</p>
+    <h2>Bring a photo. Leave with a wall.</h2>
+    <p>Family photos, your child's drawing, a map of your hometown, your café logo turned into a pattern. Our designers redraw it at wall scale and send a mock-up before printing.</p>
+    <ul><li>Kids' drawings to murals</li><li>Photo murals</li><li>Brand walls for offices</li><li>Café &amp; restaurant themes</li><li>Temple &amp; pooja room art</li></ul>
+    <div class="hero-ctas"><a class="btn btn-haldi" href="#contact">Start a bespoke design</a><a class="btn" data-wa target="_blank" rel="noopener" href="#contact">Send your idea on WhatsApp</a></div>
+  </div>
+</section>
+
+<section id="spaces">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">Where it goes</p><h2>Homes, and the businesses people remember.</h2></div>
+      <p class="lede">A printed feature wall costs less than most furniture and changes a room more. For businesses it is the backdrop in every customer photo.</p>
+    </div>
+    <div class="spaces" id="spacesGrid"></div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div><p class="eyebrow">Questions</p><h2 style="font-size:clamp(38px,5vw,64px);margin-top:10px">Good to know</h2><p class="lede" style="margin-top:16px">Anything else, just ask us on WhatsApp. A real person replies.</p></div>
+    <div>
+      <details open><summary>How long does the whole thing take?</summary><p>About 5 to 7 days from the time you approve your mock-up. Printing takes 3 to 5 days and a single feature wall is usually installed in one day.</p></details>
+      <details><summary>Will it work on my wall?</summary><p>Most painted plaster walls are fine. Walls with seepage or flaking paint need to be fixed first, and we check this for free at the site visit. Damp walls are the one thing we will not wallpaper, because no adhesive holds on them.</p></details>
+      <details><summary>Which material should I choose?</summary><p>Matte Classic is great for bedrooms and kids' rooms. Canvas Texture is washable and hides small wall flaws, so it suits living rooms and hallways. Luxe fabric and metallic finishes are for statement walls, cafés and hotels.</p></details>
+      <details><summary>Can I wipe it clean?</summary><p>Canvas Texture and Luxe can be wiped with a damp cloth. Matte Classic should only be dusted. We do not recommend wallpaper inside showers or right behind a cooking hob.</p></details>
+      <details><summary>I live in a rented flat. Can I still do this?</summary><p>Yes. Ask for our removable adhesive installation, which comes off in panels when you move. Tell us at the site visit so we prep the wall for it.</p></details>
+      <details><summary>Can I change the colours of a design?</summary><p>Every design can be recoloured to match your sofa, curtains or brand colours at no extra cost. You will see the new colours on your mock-up first.</p></details>
+      <details><summary>Do you deliver outside the city?</summary><p>We can print and ship anywhere in India with installation instructions. Our own install team covers the city and nearby areas; ask us about larger projects elsewhere.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap contact">
+    <div>
+      <p class="eyebrow">Book a free site visit</p>
+      <h2>Let's dress your walls.</h2>
+      <p class="lede" style="margin-top:16px">Tell us a little about the space. We will reply on WhatsApp, usually within the hour during working hours.</p>
+      <div class="lines">
+        <div class="cline"><div><div class="k">Call</div><div class="v" data-phone-text>+91 90000 00000</div></div><div class="acts"><a class="btn btn-sm" data-tel href="#contact">Call</a><button class="btn btn-sm" type="button" data-copy="phone">Copy</button></div></div>
+        <div class="cline"><div><div class="k">WhatsApp</div><div class="v" data-phone-text>+91 90000 00000</div></div><div class="acts"><a class="btn btn-sm btn-wa" data-wa target="_blank" rel="noopener" href="#contact">Open chat</a></div></div>
+        <div class="cline"><div><div class="k">Email</div><div class="v" data-email-text>hello@deewar.in</div></div><div class="acts"><button class="btn btn-sm" type="button" data-copy="email">Copy</button></div></div>
+        <div class="cline"><div><div class="k">Studio hours</div><div class="v">Mon to Sat · 10 am to 8 pm</div></div></div>
+      </div>
+    </div>
+    <form class="enq" id="enq" novalidate>
+      <div><label class="lbl" for="fName">Your name</label><input type="text" id="fName" autocomplete="name" required></div>
+      <div><label class="lbl" for="fPhone">Phone / WhatsApp</label><input type="tel" id="fPhone" autocomplete="tel" inputmode="tel" required></div>
+      <div><label class="lbl" for="fArea">Area / locality</label><input type="text" id="fArea" autocomplete="address-level2"></div>
+      <div><label class="lbl" for="fSpace">Space</label><select id="fSpace"><option>Living room</option><option>Bedroom</option><option>Kids' room</option><option>Pooja room</option><option>Office</option><option>Café / restaurant</option><option>Hotel / salon / shop</option></select></div>
+      <div><label class="lbl" for="fDesign">Design you like</label><select id="fDesign"></select></div>
+      <div><label class="lbl" for="fSize">Approx. wall size</label><input type="text" id="fSize" placeholder="e.g. 12 ft × 9 ft"></div>
+      <div class="full"><label class="lbl" for="fMsg">Anything else</label><textarea id="fMsg" placeholder="Colours you like, timeline, photos you can share on WhatsApp"></textarea></div>
+      <div class="full err" id="fErr" role="alert"></div>
+      <div class="full"><button class="btn btn-solid" type="submit" style="width:100%;justify-content:center">Prepare my enquiry</button></div>
+      <div class="sent" id="sent" hidden>
+        <strong>Your enquiry is ready. Send it to us on WhatsApp so it reaches us.</strong>
+        <pre id="sentText"></pre>
+        <div class="card-actions"><a class="btn btn-wa btn-sm" id="sentWa" target="_blank" rel="noopener" href="#contact">Send on WhatsApp</a><button class="btn btn-sm" type="button" id="sentCopy">Copy message</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span class="brand-name" style="font-size:22px" data-brand>Deewar</span><br>Custom printed wallpaper, measured and installed. <span data-city>Hyderabad</span>.</div>
+    <div>All designs on this site are original artworks by <span data-brand>Deewar</span>.<br>© <span id="yr">2026</span> <span data-brand>Deewar</span></div>
+  </div>
+</footer>
+
+<a class="fab" data-wa target="_blank" rel="noopener" href="#contact" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Chat with us</span></a>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ============ EDIT YOUR BUSINESS DETAILS HERE ============ */
+const CONFIG = {
+  brand: "Deewar",
+  city: "Hyderabad",
+  phoneDisplay: "+91 90000 00000",   // shown on the page
+  phoneDigits: "919000000000",       // country code + number, digits only (used for call + WhatsApp)
+  email: "hello@deewar.in",
+  installRate: 25,          // ₹ per sq ft
+  freeInstallAbove: 200,    // sq ft
+  prepRate: 12,             // ₹ per sq ft
+  wastage: 0.10
+};
+const MATERIALS = [
+  {id:"matte", name:"Matte Classic", mat:"180 gsm non-woven, matte", rate:95, perks:["Soft paper-like finish","Breathable, easy to remove later","Best for bedrooms and kids' rooms","Dust with a dry cloth"]},
+  {id:"canvas", name:"Canvas Texture", mat:"Woven canvas texture, washable", rate:145, feature:true, perks:["Rich woven texture that hides small flaws","Wipe clean with a damp cloth","Best for living rooms and hallways","Colours stay fresh for years indoors"]},
+  {id:"luxe", name:"Luxe", mat:"Fabric silk, sandstone or metallic", rate:225, perks:["Silk sheen, sandstone grain or metallic glow","Our deepest, most vivid print","Best for statement walls, cafés and hotels","Wipe clean, commercial grade"]}
+];
+/* ========================================================== */
+
+const TAU = Math.PI*2;
+const inr = n => "₹" + Math.round(n).toLocaleString("en-IN");
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function makeNoise(seed){
+  const R=mulberry32(seed), perm=new Uint8Array(512), vals=new Float32Array(256), p=[...Array(256).keys()];
+  for(let i=255;i>0;i--){const j=Math.floor(R()*(i+1));[p[i],p[j]]=[p[j],p[i]]}
+  for(let i=0;i<512;i++)perm[i]=p[i&255];
+  for(let i=0;i<256;i++)vals[i]=R();
+  const v=(i,j)=>vals[perm[(perm[i&255]+j)&255]];
+  const f=t=>t*t*(3-2*t);
+  const n=(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),xf=f(x-xi),yf=f(y-yi);
+    const a=v(xi,yi),b=v(xi+1,yi),c=v(xi,yi+1),d=v(xi+1,yi+1);
+    return a+(b-a)*xf+(c-a)*yf+(a-b-c+d)*xf*yf};
+  return (x,y,o=4)=>{let s=0,amp=.5,fr=1,norm=0;for(let k=0;k<o;k++){s+=amp*n(x*fr+k*17.3,y*fr+k*9.1);norm+=amp;amp*=.5;fr*=2}return s/norm};
+}
+const pick=(R,a)=>a[Math.floor(R()*a.length)];
+
+/* ---------- Pattern artworks (all procedurally generated) ---------- */
+function leaf(ctx,len,col,vein,R){
+  const wd=len*(0.26+R()*0.16);
+  ctx.beginPath();ctx.moveTo(0,0);
+  ctx.bezierCurveTo(wd,-len*.18,wd*.95,-len*.72,0,-len);
+  ctx.bezierCurveTo(-wd*.95,-len*.72,-wd,-len*.18,0,0);
+  ctx.fillStyle=col;ctx.fill();
+  ctx.save();ctx.clip();ctx.fillStyle="rgba(0,0,0,.16)";ctx.fillRect(0,-len,wd,len);ctx.restore();
+  ctx.strokeStyle=vein;ctx.lineWidth=Math.max(1,len*.012);
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-len*.97);
+  for(let i=1;i<10;i++){const t=i/10,y=-len*t,h=wd*Math.sin(Math.PI*t)*.85;ctx.moveTo(0,y);ctx.lineTo(h,y-len*.07);ctx.moveTo(0,y);ctx.lineTo(-h,y-len*.07)}
+  ctx.stroke();
+}
+function frond(ctx,len,col,vein,R){
+  ctx.strokeStyle=col;ctx.lineWidth=Math.max(1,len*.02);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(len*.1,-len*.5,0,-len);ctx.stroke();
+  for(let i=2;i<18;i++){const t=i/18,y=-len*t,l=len*.34*Math.sin(Math.PI*Math.min(1,t*1.1));
+    for(const s of[-1,1]){ctx.save();ctx.translate(len*.1*Math.sin(Math.PI*t)*.6,y);ctx.rotate(s*(1.05+R()*.2));ctx.scale(.55,1);leaf(ctx,l,col,vein,R);ctx.restore()}}
+}
+const DESIGNS = [
+ {id:"canopy",name:"Monsoon Canopy",mood:"Botanical",seed:11,cw:[
+   {n:"Malabar",c:["#0d2b26","#12453b","#1f6b4f","#3f9a62","#9fcf7a","rgba(232,245,208,.38)"]},
+   {n:"Dusk",c:["#2a1430","#4a1f4d","#7a2f63","#c2557a","#f0a6a0","rgba(255,227,214,.35)"]},
+   {n:"Sage",c:["#e7ebe2","#c3cdb9","#9fae95","#728a70","#4b6450","rgba(255,255,255,.45)"]}],
+  draw(ctx,w,h,p,s,R){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=s*.06;ctx.shadowOffsetY=s*.02;
+   for(let L=0;L<4;L++){const n=Math.ceil(w*h/(s*s)*1.6);
+    for(let k=0;k<n;k++){ctx.save();ctx.translate(R()*(w+s)-s/2,R()*(h+s)-s/2);ctx.rotate(R()*TAU);
+     const len=s*(.55+R()*.65); if(R()<.3) frond(ctx,len*1.2,p[1+L],p[5],R); else leaf(ctx,len,p[1+L],p[5],R); ctx.restore()}}
+   ctx.shadowColor="transparent";
+  }},
+ {id:"deco",name:"Peacock Deco",mood:"Geometric",seed:23,cw:[
+   {n:"Peacock",c:["#0c3b3e","#d3a24a","#f0d48a","#0f4c50"]},
+   {n:"Rosewater",c:["#f3d9d2","#b8735a","#7d3e2e","#ecc9bf"]},
+   {n:"Onyx",c:["#141414","#c9a24d","#efe2b5","#1d1d1d"]}],
+  draw(ctx,w,h,p,s){
+   const r=s*.42;ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   for(let row=0;row*r<h+3*r;row++){const y=row*r-r,off=row%2?r:0;
+    for(let x=-2*r+off;x<w+2*r;x+=2*r){
+     const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,p[3]);g.addColorStop(1,p[0]);
+     ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fillStyle=g;ctx.fill();
+     ctx.strokeStyle=p[1];ctx.lineWidth=Math.max(1,r*.035);ctx.stroke();
+     ctx.lineWidth=Math.max(.6,r*.018);
+     for(let k=1;k<5;k++){ctx.beginPath();ctx.arc(x,y,r*k/5.2,0,TAU);ctx.stroke()}
+     ctx.beginPath();for(let a=Math.PI;a<=TAU+.01;a+=Math.PI/10){ctx.moveTo(x+Math.cos(a)*r*.25,y+Math.sin(a)*r*.25);ctx.lineTo(x+Math.cos(a)*r*.76,y+Math.sin(a)*r*.76)}ctx.strokeStyle=p[2];ctx.stroke();
+     ctx.beginPath();ctx.arc(x,y,r*.13,0,TAU);ctx.fillStyle=p[2];ctx.fill();
+    }}
+  }},
+ {id:"terrazzo",name:"Terrazzo Rani",mood:"Abstract",seed:37,cw:[
+   {n:"Chalk",c:["#f1ede6","#d9583b","#2f6f73","#e7b24a","#1e2a33","#b9c4bf"]},
+   {n:"Sindoor",c:["#9e2a22","#f2d4b8","#e8a33d","#2c1b18","#f7efe4","#c7584a"]},
+   {n:"Slate",c:["#2e3437","#e9e4dc","#d39b6a","#8fa6a0","#5c6b70","#c9c1b3"]}],
+  draw(ctx,w,h,p,s,R){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   const chip=(rad)=>{const x=R()*w,y=R()*h,k=5+Math.floor(R()*4),a0=R()*TAU;ctx.beginPath();
+    for(let i=0;i<k;i++){const a=a0+i/k*TAU+(R()-.5)*.5,rr=rad*(.55+R()*.45);i?ctx.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr):ctx.moveTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}
+    ctx.closePath();ctx.fillStyle=pick(R,p.slice(1));ctx.fill()};
+   const n=w*h/(s*s);
+   for(let i=0;i<n*5;i++)chip(s*(.07+R()*.12));
+   for(let i=0;i<n*30;i++)chip(s*(.015+R()*.035));
+   for(let i=0;i<n*120;i++){ctx.fillStyle=pick(R,p.slice(1));ctx.globalAlpha=.6;ctx.fillRect(R()*w,R()*h,s*.008,s*.008)}
+   ctx.globalAlpha=1;
+  }},
+ {id:"flow",name:"Chroma Drift",mood:"Abstract",seed:41,cw:[
+   {n:"Neon Mehndi",c:["#1a0f3a","#3a0f4a","#ff6ec7","#ffb347","#5ef2d6"]},
+   {n:"Sunset",c:["#ffb38a","#ff6f61","#fff1c9","#7a1f4b","#ffd166"]},
+   {n:"Glacier",c:["#e8f1f5","#b9d7e6","#1f4e79","#4b9cc8","#ffffff"]}],
+  draw(ctx,w,h,p,s,R,N){
+   const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+   const f=1/(s*1.3),step=s*.018,n=Math.ceil(w*h/(s*s)*55);ctx.lineCap="round";
+   for(let i=0;i<n;i++){let x=R()*w,y=R()*h;ctx.beginPath();ctx.moveTo(x,y);
+    const L=60+R()*140;for(let k=0;k<L;k++){const a=N(x*f,y*f,3)*TAU*2.2;x+=Math.cos(a)*step;y+=Math.sin(a)*step;ctx.lineTo(x,y)}
+    ctx.strokeStyle=pick(R,p.slice(2));ctx.globalAlpha=.25+R()*.55;ctx.lineWidth=s*(.004+R()*.018);ctx.stroke()}
+   ctx.globalAlpha=1;
+  }},
+ {id:"topo",name:"Ghats Contour",mood:"Minimal",seed:53,cw:[
+   {n:"Sandstone",c:["#e9dcc6","#a77b55","#6b4429"]},
+   {n:"Midnight",c:["#0f1b2b","#3d6b8e","#b6e1ff"]},
+   {n:"Moss",c:["#1f2a1f","#6f8f55","#d6e8a5"]}],
+  draw(ctx,w,h,p,s,R,N){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   const g=Math.max(3,Math.round(w/240)),cols=Math.ceil(w/g)+1,rows=Math.ceil(h/g)+1,f=1/(s*1.6),V=new Float32Array(cols*rows);
+   for(let j=0;j<rows;j++)for(let i=0;i<cols;i++)V[j*cols+i]=N(i*g*f,j*g*f,4);
+   const lw=Math.max(.8,s*.006);
+   for(let L=0;L<22;L++){const lv=.22+L*.028;ctx.beginPath();
+    for(let j=0;j<rows-1;j++)for(let i=0;i<cols-1;i++){
+     const a=V[j*cols+i],b=V[j*cols+i+1],c=V[(j+1)*cols+i+1],d=V[(j+1)*cols+i],x=i*g,y=j*g,pts=[];
+     if((a>lv)!==(b>lv))pts.push([x+g*(lv-a)/(b-a),y]);
+     if((b>lv)!==(c>lv))pts.push([x+g,y+g*(lv-b)/(c-b)]);
+     if((d>lv)!==(c>lv))pts.push([x+g*(lv-d)/(c-d),y+g]);
+     if((a>lv)!==(d>lv))pts.push([x,y+g*(lv-a)/(d-a)]);
+     for(let q=0;q+1<pts.length;q+=2){ctx.moveTo(pts[q][0],pts[q][1]);ctx.lineTo(pts[q+1][0],pts[q+1][1])}}
+    const major=L%5===0;ctx.strokeStyle=major?p[2]:p[1];ctx.lineWidth=major?lw*2.4:lw;ctx.globalAlpha=major?1:.8;ctx.stroke()}
+   ctx.globalAlpha=1;
+  }},
+ {id:"lotus",name:"Lotus Pond",mood:"Indian Heritage",seed:67,cw:[
+   {n:"Night Pichwai",c:["#0f1d45","#1e5a46","#2f8a63","#f2a7b8","#fbe3ea","#e5b84a"]},
+   {n:"Dawn",c:["#f6e7d9","#9cc6a8","#5f9e7a","#e78aa2","#fff2f5","#c8962f"]}],
+  draw(ctx,w,h,p,s,R){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   ctx.strokeStyle=p[5];ctx.lineWidth=Math.max(.6,s*.004);
+   for(let i=0;i<w*h/(s*s)*1.2;i++){const x=R()*w,y=R()*h;for(let k=1;k<5;k++){ctx.globalAlpha=.22/k;ctx.beginPath();ctx.ellipse(x,y,s*.12*k,s*.05*k,0,0,TAU);ctx.stroke()}}
+   ctx.globalAlpha=1;
+   const cell=s*.62,items=[];
+   for(let y=-cell;y<h+cell;y+=cell)for(let x=-cell;x<w+cell;x+=cell)items.push([x+(R()-.5)*cell*.8,y+(R()-.5)*cell*.8,R()]);
+   for(const[x,y,t]of items){if(t>.6)continue;const r=s*(.16+R()*.12),a0=R()*TAU;
+    ctx.beginPath();ctx.moveTo(x,y);ctx.arc(x,y,r,a0+.3,a0+TAU-.3);ctx.closePath();ctx.fillStyle=t<.3?p[1]:p[2];ctx.fill();
+    ctx.strokeStyle=p[0];ctx.globalAlpha=.35;ctx.lineWidth=Math.max(.6,r*.03);ctx.beginPath();for(let k=1;k<9;k++){const a=a0+.3+k/9*(TAU-.6);ctx.moveTo(x,y);ctx.lineTo(x+Math.cos(a)*r*.92,y+Math.sin(a)*r*.92)}ctx.stroke();ctx.globalAlpha=1}
+   for(const[x,y,t]of items){if(t<=.6)continue;const r=s*(t>.88?.13:.2);
+    if(t>.88){ctx.beginPath();ctx.moveTo(x,y+r);ctx.quadraticCurveTo(x+r*.9,y,x,y-r*1.2);ctx.quadraticCurveTo(x-r*.9,y,x,y+r);ctx.fillStyle=p[3];ctx.fill();continue}
+    const petal=(len,wd,ang,col)=>{ctx.save();ctx.translate(x,y);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(wd,-len*.5,0,-len);ctx.quadraticCurveTo(-wd,-len*.5,0,0);ctx.fillStyle=col;ctx.fill();ctx.strokeStyle=p[0];ctx.globalAlpha=.25;ctx.lineWidth=Math.max(.5,len*.02);ctx.stroke();ctx.globalAlpha=1;ctx.restore()};
+    const rot=R()*TAU;
+    for(let k=0;k<10;k++)petal(r*1.15,r*.42,rot+k/10*TAU,p[3]);
+    for(let k=0;k<8;k++)petal(r*.8,r*.32,rot+.2+k/8*TAU,p[4]);
+    ctx.beginPath();ctx.arc(x,y,r*.22,0,TAU);ctx.fillStyle=p[5];ctx.fill();
+    ctx.fillStyle=p[0];for(let k=0;k<6;k++){const a=k/6*TAU;ctx.beginPath();ctx.arc(x+Math.cos(a)*r*.11,y+Math.sin(a)*r*.11,r*.03,0,TAU);ctx.fill()}}
+   ctx.fillStyle=p[5];for(let i=0;i<w*h/(s*s)*14;i++){ctx.globalAlpha=.5*R();ctx.beginPath();ctx.arc(R()*w,R()*h,s*.006,0,TAU);ctx.fill()}ctx.globalAlpha=1;
+  }},
+ {id:"memphis",name:"Masala Memphis",mood:"Playful",seed:79,cw:[
+   {n:"Candy",c:["#fdf3e7","#ff5d8f","#2ec4b6","#ffbf1f","#3a3bd1"]},
+   {n:"Retro",c:["#1c1f3b","#ff7a59","#ffd23f","#3bceac","#ee4266"]}],
+  draw(ctx,w,h,p,s,R){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);const cell=s*.5;ctx.lineCap="round";ctx.lineJoin="round";
+   for(let y=0;y<h+cell;y+=cell)for(let x=0;x<w+cell;x+=cell){
+    const z=cell*.32,col=p[1+Math.floor(R()*4)],t=Math.floor(R()*7);ctx.save();ctx.translate(x+(R()-.5)*cell*.5,y+(R()-.5)*cell*.5);ctx.rotate(R()*TAU);
+    ctx.fillStyle=col;ctx.strokeStyle=col;ctx.lineWidth=z*.22;ctx.beginPath();
+    if(t===0){for(let i=0;i<=24;i++){const u=i/24;ctx.lineTo(-z*1.2+u*z*2.4,Math.sin(u*TAU*1.5)*z*.35)}ctx.stroke()}
+    else if(t===1){ctx.moveTo(0,-z);ctx.lineTo(z*.9,z*.6);ctx.lineTo(-z*.9,z*.6);ctx.closePath();ctx.fill()}
+    else if(t===2){ctx.arc(0,0,z*.7,0,TAU);ctx.stroke()}
+    else if(t===3){for(let i=-1;i<2;i++)for(let j=-1;j<2;j++){ctx.moveTo(i*z*.5+z*.1,j*z*.5);ctx.arc(i*z*.5,j*z*.5,z*.1,0,TAU)}ctx.fill()}
+    else if(t===4){ctx.arc(0,0,z*.8,0,Math.PI);ctx.closePath();ctx.fill()}
+    else if(t===5){ctx.moveTo(-z,0);for(let i=1;i<=6;i++)ctx.lineTo(-z+i*z/3,i%2?-z*.35:0);ctx.stroke()}
+    else{ctx.moveTo(-z*.6,0);ctx.lineTo(z*.6,0);ctx.moveTo(0,-z*.6);ctx.lineTo(0,z*.6);ctx.stroke()}
+    ctx.restore()}
+  }},
+ {id:"jharokha",name:"Jharokha Nights",mood:"Indian Heritage",seed:83,cw:[
+   {n:"Indigo",c:["#1a1530","#1b2a6b","#e7705a","#fff6d8","#d9a441"]},
+   {n:"Rose Fort",c:["#f4dfd3","#d97c6a","#f6c9a8","#fffaf0","#8c3b2e"]}],
+  draw(ctx,w,h,p,s,R){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);
+   const aw=s*.62,ah=s*1.05,gx=s*.16,gy=s*.2;
+   const arch=(x,y,W,H)=>{ctx.beginPath();ctx.moveTo(x,y+H);ctx.lineTo(x,y+W*.55);ctx.quadraticCurveTo(x,y+W*.12,x+W/2,y);ctx.quadraticCurveTo(x+W,y+W*.12,x+W,y+W*.55);ctx.lineTo(x+W,y+H);ctx.closePath()};
+   for(let row=0,y=gy/2;y<h;row++,y+=ah+gy)for(let x=(row%2?-(aw+gx)/2:0)+gx/2;x<w;x+=aw+gx){
+    const g=ctx.createLinearGradient(0,y,0,y+ah);g.addColorStop(0,p[1]);g.addColorStop(1,p[2]);
+    arch(x,y,aw,ah);ctx.fillStyle=g;ctx.fill();
+    ctx.save();ctx.clip();ctx.fillStyle=p[3];
+    for(let k=0;k<26;k++){ctx.globalAlpha=.3+R()*.7;ctx.beginPath();ctx.arc(x+R()*aw,y+R()*ah*.6,s*(.002+R()*.006),0,TAU);ctx.fill()}
+    ctx.globalAlpha=1;
+    if(R()<.45){const mx=x+aw*(.3+R()*.4),my=y+ah*(.22+R()*.15),mr=aw*.11;ctx.beginPath();ctx.arc(mx,my,mr,0,TAU);ctx.fill();ctx.beginPath();ctx.arc(mx+mr*.45,my-mr*.2,mr*.9,0,TAU);ctx.fillStyle=g;ctx.fill()}
+    ctx.fillStyle=p[0];ctx.globalAlpha=.85;const by=y+ah;ctx.beginPath();ctx.moveTo(x,by);
+    const dc=x+aw*(.35+R()*.3),dr=aw*.16;ctx.lineTo(x,by-ah*.1);ctx.lineTo(dc-dr*1.6,by-ah*.1);ctx.lineTo(dc-dr,by-ah*.16);ctx.arc(dc,by-ah*.16,dr,Math.PI,TAU);ctx.lineTo(dc+dr*1.6,by-ah*.1);ctx.lineTo(x+aw,by-ah*.08);ctx.lineTo(x+aw,by);ctx.fill();
+    ctx.fillRect(dc-aw*.38,by-ah*.3,aw*.035,ah*.3);ctx.fillRect(dc+aw*.35,by-ah*.26,aw*.035,ah*.26);ctx.globalAlpha=1;ctx.restore();
+    ctx.strokeStyle=p[4];ctx.lineWidth=Math.max(1,s*.012);arch(x,y,aw,ah);ctx.stroke();
+    ctx.lineWidth=Math.max(.6,s*.005);arch(x-s*.03,y-s*.035,aw+s*.06,ah+s*.035);ctx.stroke();
+    ctx.fillStyle=p[4];const sx=x+aw+gx/2,sy=y+ah*.5,z=s*.04;ctx.beginPath();ctx.moveTo(sx,sy-z);ctx.lineTo(sx+z*.3,sy);ctx.lineTo(sx,sy+z);ctx.lineTo(sx-z*.3,sy);ctx.closePath();ctx.fill();
+   }
+  }},
+ {id:"mandala",name:"Mandala Bloom",mood:"Indian Heritage",seed:97,cw:[
+   {n:"Block Print",c:["#f4efe4","#203a72","#c3503a","#e1b04a"]},
+   {n:"Saffron",c:["#d06a22","#fff0d4","#5b1c10","#f6c04a"]},
+   {n:"Emerald",c:["#0e3a2f","#f1e6c8","#d4a24a","#c2513f"]}],
+  draw(ctx,w,h,p,s){
+   ctx.fillStyle=p[0];ctx.fillRect(0,0,w,h);const st=s*.95;
+   const petal=(cx,cy,ang,r0,len,wd,col)=>{ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);ctx.translate(0,-r0);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(wd,-len*.45,0,-len);ctx.quadraticCurveTo(-wd,-len*.45,0,0);ctx.fillStyle=col;ctx.fill();ctx.restore()};
+   const M=(cx,cy,R)=>{
+    for(let k=0;k<16;k++)petal(cx,cy,k/16*TAU,R*.58,R*.36,R*.13,p[1]);
+    ctx.fillStyle=p[2];for(let k=0;k<32;k++){const a=k/32*TAU;ctx.beginPath();ctx.arc(cx+Math.cos(a)*R*1.0,cy+Math.sin(a)*R*1.0,R*.028,0,TAU);ctx.fill()}
+    ctx.beginPath();ctx.arc(cx,cy,R*.6,0,TAU);ctx.fillStyle=p[0];ctx.fill();ctx.strokeStyle=p[1];ctx.lineWidth=R*.03;ctx.stroke();
+    for(let k=0;k<12;k++)petal(cx,cy,k/12*TAU+.26,R*.26,R*.32,R*.12,p[2]);
+    ctx.beginPath();ctx.arc(cx,cy,R*.27,0,TAU);ctx.fillStyle=p[3];ctx.fill();
+    for(let k=0;k<8;k++)petal(cx,cy,k/8*TAU,0,R*.24,R*.07,p[0]);
+    ctx.beginPath();ctx.arc(cx,cy,R*.05,0,TAU);ctx.fillStyle=p[1];ctx.fill()};
+   for(let row=0,y=0;y<h+st;row++,y+=st*.87)for(let x=row%2?st/2:0;x<w+st;x+=st){M(x,y,s*.4)}
+   for(let row=0,y=st*.29;y<h+st;row++,y+=st*.87)for(let x=(row%2?0:st/2);x<w+st;x+=st){for(let k=0;k<4;k++)petal(x,y,k/4*TAU,0,s*.07,s*.03,p[3])}
+  }},
+ {id:"bauhaus",name:"Bauhaus Chai",mood:"Geometric",seed:101,cw:[
+   {n:"Primary",c:["#f2ede3","#e63946","#1d3557","#f4a261","#2a9d8f","#111111"]},
+   {n:"Earth",c:["#e8dfcf","#b5562f","#3f4a3c","#d9a441","#7d8b6a","#2b2118"]}],
+  draw(ctx,w,h,p,s,R){
+   const c=s*.5;
+   for(let y=0;y<h;y+=c)for(let x=0;x<w;x+=c){
+    const bg=R()<.35?p[0]:pick(R,p.slice(1));let fg=pick(R,p);if(fg===bg)fg=p[0]===bg?p[5]:p[0];
+    ctx.fillStyle=bg;ctx.fillRect(x,y,c+1,c+1);ctx.fillStyle=fg;const t=Math.floor(R()*5),q=Math.floor(R()*4);
+    ctx.save();ctx.translate(x+c/2,y+c/2);ctx.rotate(q*Math.PI/2);ctx.beginPath();
+    if(t===0){ctx.moveTo(-c/2,-c/2);ctx.arc(-c/2,-c/2,c,0,Math.PI/2);ctx.closePath();ctx.fill()}
+    else if(t===1){ctx.arc(0,-c/2,c/2,0,Math.PI);ctx.fill()}
+    else if(t===2){ctx.arc(0,0,c*.32,0,TAU);ctx.fill()}
+    else if(t===3){ctx.moveTo(-c/2,-c/2);ctx.lineTo(c/2,-c/2);ctx.lineTo(-c/2,c/2);ctx.closePath();ctx.fill()}
+    else{for(let i=0;i<3;i++)ctx.fillRect(-c/2,-c/2+i*c/3+c/12,c,c/9)}
+    ctx.restore()}
+  }}
+];
+const state = {cw:{}};
+DESIGNS.forEach(d=>state.cw[d.id]=0);
+
+function paint(canvas,d,cwIdx,scale=1,dprCap=2){
+  const rect=canvas.getBoundingClientRect(),dpr=Math.min(dprCap,window.devicePixelRatio||1);
+  const W=Math.max(60,Math.round((rect.width||300)*dpr)),H=Math.max(60,Math.round((rect.height||400)*dpr));
+  canvas.width=W;canvas.height=H;const ctx=canvas.getContext("2d");
+  drawDesign(ctx,W,H,d,cwIdx,Math.max(W,H)/4.2*scale);
+}
+function drawDesign(ctx,W,H,d,cwIdx,s){
+  ctx.save();d.draw(ctx,W,H,d.cw[cwIdx].c,s,mulberry32(d.seed),makeNoise(d.seed));ctx.restore();
+}
+const queue=[];let busy=false;
+function enqueue(fn){queue.push(fn);if(!busy){busy=true;requestAnimationFrame(run)}}
+function run(){const t=performance.now();while(queue.length&&performance.now()-t<24)queue.shift()();if(queue.length)requestAnimationFrame(run);else busy=false}
+
+/* ---------- Config wiring ---------- */
+const waLink=(text)=>"https://wa.me/"+CONFIG.phoneDigits+"?text="+encodeURIComponent(text);
+function wire(){
+  document.querySelectorAll("[data-brand]").forEach(e=>e.textContent=CONFIG.brand);
+  document.querySelectorAll("[data-city]").forEach(e=>e.textContent=CONFIG.city);
+  document.querySelectorAll("[data-phone-text]").forEach(e=>e.textContent=CONFIG.phoneDisplay);
+  document.querySelectorAll("[data-email-text]").forEach(e=>e.textContent=CONFIG.email);
+  document.querySelectorAll("[data-tel]").forEach(e=>e.href="tel:+"+CONFIG.phoneDigits);
+  document.querySelectorAll("[data-wa]").forEach(e=>e.href=waLink("Hi "+CONFIG.brand+", I'd like a custom wallpaper for my home."));
+  document.getElementById("yr").textContent=new Date().getFullYear();
+  document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b.dataset.copy==="phone"?CONFIG.phoneDisplay:CONFIG.email)));
+}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2200)}
+function copy(text){try{navigator.clipboard.writeText(text).then(()=>toast("Copied"),()=>toast("Select the text to copy it"))}catch(e){toast("Select the text to copy it")}}
+
+/* ---------- Hero arches ---------- */
+const heroSet=[["canopy",0],["jharokha",0],["deco",0]];
+const heroPool=[["canopy",0],["jharokha",0],["deco",0],["lotus",0],["flow",0],["mandala",2],["terrazzo",1],["canopy",1],["deco",1]];
+function buildHero(){
+  const box=document.getElementById("heroArches");
+  heroSet.forEach(([id,cw],i)=>{const a=document.createElement("div");a.className="arch";a.innerHTML='<canvas></canvas><div class="arch-tag"><b></b><span></span></div>';box.appendChild(a);setArch(a,id,cw)});
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){let k=3;setInterval(()=>{const a=box.children[k%3];const [id,cw]=heroPool[k%heroPool.length];k++;a.style.transition="opacity .5s";a.style.opacity=.15;setTimeout(()=>{setArch(a,id,cw);a.style.opacity=1},500)},4200)}
+}
+function setArch(a,id,cw){const d=DESIGNS.find(x=>x.id===id);a.querySelector("b").textContent=d.name;a.querySelector("span").textContent=d.cw[cw].n;enqueue(()=>paint(a.querySelector("canvas"),d,cw,.8))}
+
+/* ---------- Ribbon ---------- */
+(function(){const items=["Free home measurement","Printed to the inch","Installed in a day","Recolour any design","Eco-solvent & latex inks","Removable option for rented homes","Original designs only"];document.getElementById("ribbon").innerHTML=[...items,...items].map(t=>"<span>"+t+"</span>").join("")})();
+
+/* ---------- Gallery ---------- */
+const MOODS=["All",...new Set(DESIGNS.map(d=>d.mood))];
+function buildGallery(){
+  const f=document.getElementById("filters"),g=document.getElementById("gallery");
+  MOODS.forEach((m,i)=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=m;b.setAttribute("aria-pressed",i===0);b.onclick=()=>{f.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b));g.querySelectorAll(".card").forEach(c=>c.hidden=!(m==="All"||c.dataset.mood===m))};f.appendChild(b)});
+  DESIGNS.forEach(d=>{
+    const c=document.createElement("article");c.className="card";c.dataset.mood=d.mood;
+    c.innerHTML='<div class="arch"><canvas aria-label="'+d.name+' wallpaper design"></canvas></div><div class="card-row"><h3>'+d.name+'</h3><span class="from">from ₹95/sq ft</span></div><div class="card-row"><span class="mood">'+d.mood+'</span></div><div class="swatches"></div><div class="card-actions"><button class="linkbtn" type="button" data-act="try">Try on a wall</button><button class="linkbtn" type="button" data-act="enq">Enquire</button></div>';
+    const sw=c.querySelector(".swatches"),cv=c.querySelector("canvas");
+    d.cw.forEach((w,i)=>{const b=document.createElement("button");b.className="sw";b.type="button";b.title=w.n;b.setAttribute("aria-label",w.n+" colourway");b.style.background="linear-gradient(135deg,"+w.c[0]+" 50%,"+w.c[2]+" 50%)";b.setAttribute("aria-pressed",i===0);b.onclick=()=>{state.cw[d.id]=i;sw.querySelectorAll(".sw").forEach(x=>x.setAttribute("aria-pressed",x===b));nm.textContent=w.n;enqueue(()=>paint(cv,d,i))};sw.appendChild(b)});
+    const nm=document.createElement("span");nm.className="sw-name";nm.textContent=d.cw[0].n;sw.appendChild(nm);
+    c.querySelector('[data-act="try"]').onclick=()=>{viz.design=d.id;viz.cw=state.cw[d.id];syncViz();document.getElementById("try").scrollIntoView()};
+    c.querySelector('[data-act="enq"]').onclick=()=>{document.getElementById("fDesign").value=d.name+" ("+d.cw[state.cw[d.id]].n+")";document.getElementById("contact").scrollIntoView();document.getElementById("fName").focus({preventScroll:true})};
+    g.appendChild(c);enqueue(()=>paint(cv,d,0));
+  });
+}
+
+/* ---------- Visualiser ---------- */
+const viz={design:"deco",cw:0,room:"living",scale:1};
+const ROOMS={living:"Living room",bedroom:"Bedroom",cafe:"Café"};
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,w,h,r):ctx.rect(x,y,w,h)}
+function drawRoom(){
+  const cv=document.getElementById("room"),W=1200,H=760,dpr=Math.min(1.5,window.devicePixelRatio||1);
+  cv.width=W*dpr;cv.height=H*dpr;const ctx=cv.getContext("2d");ctx.scale(dpr,dpr);
+  const d=DESIGNS.find(x=>x.id===viz.design),wallH=H*.8;
+  const off=document.createElement("canvas");off.width=W*dpr;off.height=wallH*dpr;
+  drawDesign(off.getContext("2d"),off.width,off.height,d,viz.cw,off.width/5.2*viz.scale);
+  ctx.drawImage(off,0,0,W,wallH);
+  let g=ctx.createLinearGradient(0,0,0,wallH);g.addColorStop(0,"rgba(0,0,0,.28)");g.addColorStop(.35,"rgba(0,0,0,0)");g.addColorStop(1,"rgba(0,0,0,.18)");ctx.fillStyle=g;ctx.fillRect(0,0,W,wallH);
+  g=ctx.createLinearGradient(0,0,W,0);g.addColorStop(0,"rgba(0,0,0,.22)");g.addColorStop(.2,"rgba(0,0,0,0)");g.addColorStop(.8,"rgba(0,0,0,0)");g.addColorStop(1,"rgba(0,0,0,.25)");ctx.fillStyle=g;ctx.fillRect(0,0,W,wallH);
+  if(viz.room==="cafe"){g=ctx.createLinearGradient(0,wallH,0,H);g.addColorStop(0,"#6b6a66");g.addColorStop(1,"#3f3e3b")}else{g=ctx.createLinearGradient(0,wallH,0,H);g.addColorStop(0,"#9a7653");g.addColorStop(1,"#5e4630")}
+  ctx.fillStyle=g;ctx.fillRect(0,wallH,W,H-wallH);
+  ctx.strokeStyle="rgba(0,0,0,.18)";ctx.lineWidth=1.5;ctx.beginPath();
+  if(viz.room==="cafe"){for(let x=0;x<W;x+=120){ctx.moveTo(x,wallH);ctx.lineTo(x+(x-W/2)*.4,H)}ctx.moveTo(0,wallH+60);ctx.lineTo(W,wallH+60)}
+  else for(let y=wallH+18;y<H;y+=22){ctx.moveTo(0,y);ctx.lineTo(W,y);for(let x=((y/22)%2)*140;x<W;x+=280){ctx.moveTo(x,y);ctx.lineTo(x,y+22)}}
+  ctx.stroke();
+  ctx.fillStyle="#efebe3";ctx.fillRect(0,wallH-12,W,14);ctx.fillStyle="rgba(0,0,0,.25)";ctx.fillRect(0,wallH+2,W,3);
+  const shadow=(x,w)=>{ctx.save();ctx.filter="blur(14px)";ctx.fillStyle="rgba(0,0,0,.45)";ctx.beginPath();ctx.ellipse(x,wallH+38,w/2,24,0,0,TAU);ctx.fill();ctx.restore()};
+  const lamp=(x,top,base)=>{const gl=ctx.createRadialGradient(x,top+30,10,x,top+30,240);gl.addColorStop(0,"rgba(255,214,150,.5)");gl.addColorStop(1,"rgba(255,214,150,0)");ctx.fillStyle=gl;ctx.fillRect(x-240,top-210,480,480);ctx.fillStyle="#2b2723";ctx.fillRect(x-3,top+40,6,base-top-40);ctx.fillStyle="#f6ead2";ctx.beginPath();ctx.moveTo(x-34,top);ctx.lineTo(x+34,top);ctx.lineTo(x+48,top+52);ctx.lineTo(x-48,top+52);ctx.closePath();ctx.fill()};
+  const plant=(x,base)=>{ctx.fillStyle="#2f5233";for(let i=0;i<14;i++){ctx.save();ctx.translate(x,base-90);ctx.rotate(-1.4+i*.2);ctx.beginPath();ctx.ellipse(0,-70,18,70,0,0,TAU);ctx.fill();ctx.restore()}ctx.fillStyle="#c9b9a0";rr(ctx,x-46,base-100,92,100,10);ctx.fill()};
+  if(viz.room==="living"){
+    shadow(600,700);
+    ctx.fillStyle="#cfc6b6";rr(ctx,300,wallH-250,600,170,26);ctx.fill();
+    ctx.fillStyle="#bdb3a1";rr(ctx,270,wallH-150,660,130,22);ctx.fill();
+    ctx.fillStyle="#d8d0c1";rr(ctx,250,wallH-190,90,170,22);ctx.fill();rr(ctx,860,wallH-190,90,170,22);ctx.fill();
+    ctx.fillStyle="#e6dfd2";rr(ctx,345,wallH-160,250,60,16);ctx.fill();rr(ctx,605,wallH-160,250,60,16);ctx.fill();
+    ctx.fillStyle="#c77d3a";rr(ctx,380,wallH-235,110,90,18);ctx.fill();ctx.fillStyle="#2f4b5a";rr(ctx,710,wallH-235,110,90,18);ctx.fill();
+    ctx.fillStyle="#3a2f26";ctx.fillRect(300,wallH-22,12,30);ctx.fillRect(888,wallH-22,12,30);
+    ctx.fillStyle="#4a3a2c";rr(ctx,990,wallH-120,120,14,4);ctx.fill();ctx.fillRect(1044,wallH-110,12,118);lamp(1050,wallH-260,wallH-120);
+    plant(150,wallH+20);
+  }else if(viz.room==="bedroom"){
+    shadow(600,760);
+    ctx.fillStyle="#d9cfbf";rr(ctx,330,wallH-300,540,240,30);ctx.fill();
+    ctx.fillStyle="#f2ede4";rr(ctx,300,wallH-140,600,150,18);ctx.fill();
+    ctx.fillStyle="#5d6f68";rr(ctx,300,wallH-95,600,105,14);ctx.fill();ctx.fillStyle="#6f837b";ctx.fillRect(300,wallH-95,600,16);
+    ctx.fillStyle="#ffffff";rr(ctx,360,wallH-185,200,70,22);ctx.fill();rr(ctx,640,wallH-185,200,70,22);ctx.fill();
+    ctx.fillStyle="#c88b5a";rr(ctx,470,wallH-170,260,60,20);ctx.fill();
+    for(const x of[180,1020]){ctx.fillStyle="#6b5240";rr(ctx,x-70,wallH-110,140,118,8);ctx.fill();ctx.fillStyle="rgba(0,0,0,.2)";ctx.fillRect(x-60,wallH-60,120,3);lamp(x,wallH-210,wallH-110)}
+  }else{
+    for(const x of[300,600,900]){ctx.strokeStyle="#1d1d1d";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,150);ctx.stroke();const gl=ctx.createRadialGradient(x,190,10,x,190,260);gl.addColorStop(0,"rgba(255,206,130,.55)");gl.addColorStop(1,"rgba(255,206,130,0)");ctx.fillStyle=gl;ctx.fillRect(x-260,0,520,500);ctx.fillStyle="#1d1d1d";ctx.beginPath();ctx.moveTo(x-12,150);ctx.lineTo(x+12,150);ctx.lineTo(x+50,195);ctx.lineTo(x-50,195);ctx.closePath();ctx.fill();ctx.fillStyle="#ffe2ad";ctx.beginPath();ctx.ellipse(x,196,40,6,0,0,TAU);ctx.fill()}
+    shadow(600,900);
+    ctx.fillStyle="#2c2a27";rr(ctx,150,wallH-170,900,40,6);ctx.fill();
+    ctx.fillStyle="#8a6a4c";ctx.fillRect(170,wallH-130,860,140);ctx.strokeStyle="rgba(0,0,0,.2)";ctx.beginPath();for(let x=170;x<1030;x+=24){ctx.moveTo(x,wallH-130);ctx.lineTo(x,wallH+10)}ctx.stroke();
+    for(const x of[330,600,870]){ctx.fillStyle="#1d1d1d";ctx.fillRect(x-4,wallH-40,8,120);ctx.beginPath();ctx.ellipse(x,wallH-40,40,11,0,0,TAU);ctx.fill();ctx.strokeStyle="#1d1d1d";ctx.lineWidth=4;ctx.beginPath();ctx.ellipse(x,wallH+50,24,6,0,0,TAU);ctx.stroke()}
+    ctx.fillStyle="#f4efe6";for(const x of[260,420,780]){rr(ctx,x,wallH-215,34,45,4);ctx.fill()}
+  }
+}
+let vizRaf=0;const queueViz=()=>{cancelAnimationFrame(vizRaf);vizRaf=requestAnimationFrame(drawRoom)};
+function syncViz(){
+  const d=DESIGNS.find(x=>x.id===viz.design);
+  document.getElementById("vDesign").value=viz.design;
+  const sw=document.getElementById("vSwatches");sw.innerHTML="";
+  d.cw.forEach((w,i)=>{const b=document.createElement("button");b.className="sw";b.type="button";b.title=w.n;b.setAttribute("aria-label",w.n+" colourway");b.style.background="linear-gradient(135deg,"+w.c[0]+" 50%,"+w.c[2]+" 50%)";b.setAttribute("aria-pressed",i===viz.cw);b.onclick=()=>{viz.cw=i;syncViz()};sw.appendChild(b)});
+  const nm=document.createElement("span");nm.className="sw-name";nm.textContent=d.cw[viz.cw].n;sw.appendChild(nm);
+  document.querySelectorAll("#vRoom .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.room===viz.room));
+  document.getElementById("dimTag").textContent=ROOMS[viz.room]+" feature wall · 12 ft × 9 ft · 108 sq ft";
+  queueViz();
+}
+function buildViz(){
+  const sel=document.getElementById("vDesign");DESIGNS.forEach(d=>sel.add(new Option(d.name,d.id)));
+  sel.onchange=()=>{viz.design=sel.value;viz.cw=0;syncViz()};
+  const rm=document.getElementById("vRoom");Object.entries(ROOMS).forEach(([k,v])=>{const b=document.createElement("button");b.className="chip";b.type="button";b.dataset.room=k;b.textContent=v;b.onclick=()=>{viz.room=k;syncViz()};rm.appendChild(b)});
+  document.getElementById("vScale").oninput=e=>{viz.scale=+e.target.value;queueViz()};
+  const b=108,bill=Math.ceil(b*(1+CONFIG.wastage));document.getElementById("vPrice").textContent=inr(bill*145+b*CONFIG.installRate);
+  document.getElementById("vEnquire").onclick=()=>{const d=DESIGNS.find(x=>x.id===viz.design);document.getElementById("fDesign").value=d.name+" ("+d.cw[viz.cw].n+")";document.getElementById("fSpace").value=viz.room==="cafe"?"Café / restaurant":ROOMS[viz.room];document.getElementById("contact").scrollIntoView();document.getElementById("fName").focus({preventScroll:true})};
+  syncViz();
+}
+
+/* ---------- Pricing + estimator ---------- */
+function buildPricing(){
+  const t=document.getElementById("tiers"),em=document.getElementById("eM");
+  MATERIALS.forEach(m=>{const eg=108,bill=Math.ceil(eg*(1+CONFIG.wastage));
+    const el=document.createElement("div");el.className="tier"+(m.feature?" feature":"");
+    el.innerHTML='<div><div class="tname">'+m.name+'</div><div class="tmat">'+m.mat+'</div></div><div class="price"><small>from</small><b>'+inr(m.rate)+'</b><small>/ sq ft</small></div><ul>'+m.perks.map(p=>"<li>"+p+"</li>").join("")+'</ul><div class="eg">12 × 9 ft feature wall, installed: <b>'+inr(bill*m.rate+eg*CONFIG.installRate)+'</b></div>';
+    t.appendChild(el);em.add(new Option(m.name+" · "+inr(m.rate)+"/sq ft",m.id));});
+  em.value="canvas";
+  ["eW","eH","eN","eO","eM","eI","eP"].forEach(id=>document.getElementById(id).addEventListener("input",calc));
+  document.getElementById("eSend").onclick=()=>{const e=calc();document.getElementById("fSize").value=e.summary;document.getElementById("fMsg").value="Estimate from your website: "+e.line;document.getElementById("contact").scrollIntoView();document.getElementById("fName").focus({preventScroll:true})};
+  calc();
+}
+function calc(){
+  const v=id=>Math.max(0,parseFloat(document.getElementById(id).value)||0);
+  const m=MATERIALS.find(x=>x.id===document.getElementById("eM").value);
+  const area=Math.max(0,v("eW")*v("eH")*Math.max(1,v("eN"))-v("eO")),bill=Math.ceil(area*(1+CONFIG.wastage));
+  const print=bill*m.rate,inst=document.getElementById("eI").checked?(area>CONFIG.freeInstallAbove?0:area*CONFIG.installRate):0,prep=document.getElementById("eP").checked?area*CONFIG.prepRate:0;
+  const total=print+inst+prep;
+  const set=(id,t)=>document.getElementById(id).textContent=t;
+  set("rArea",Math.round(area)+" sq ft");set("rBill",bill+" sq ft");set("rPrint",inr(print));
+  set("rInst",document.getElementById("eI").checked?(inst===0&&area>0?"Free":inr(inst)):"Not included");set("rPrep",inr(prep));
+  set("rTotal",inr(total));set("rRange","Likely "+inr(total*.92)+" to "+inr(total*1.08)+", incl. GST. Fixed after free measurement.");
+  return {summary:v("eW")+" ft × "+v("eH")+" ft × "+Math.max(1,v("eN"))+" wall(s)",line:m.name+", "+Math.round(area)+" sq ft, about "+inr(total)};
+}
+
+/* ---------- Spaces & bespoke ---------- */
+function buildSpaces(){
+  const items=[["lotus",0,"Living rooms","The wall behind the sofa is the first thing guests see. One printed wall does the work of a full makeover."],["memphis",0,"Kids' rooms","Playful prints, or your child's own drawing made into a mural. Matte, breathable and easy to update as they grow."],["mandala",0,"Pooja rooms","Calm mandalas and lotus motifs in gold and ivory, printed to fit the alcove exactly."],["flow",0,"Cafés & offices","A signature wall gets shared in customer photos. We print brand colours and logos at large scale."]];
+  const g=document.getElementById("spacesGrid");
+  items.forEach(([id,cw,t,p])=>{const el=document.createElement("div");el.className="space";el.innerHTML='<div class="thumb"><canvas></canvas></div><h3>'+t+'</h3><p>'+p+'</p>';g.appendChild(el);enqueue(()=>paint(el.querySelector("canvas"),DESIGNS.find(d=>d.id===id),cw,.7))});
+  enqueue(()=>paint(document.getElementById("bespokeBg"),DESIGNS[0],1,.6,1.5));
+}
+
+/* ---------- Enquiry ---------- */
+function buildForm(){
+  const fd=document.getElementById("fDesign");fd.add(new Option("Not sure yet / need help"));fd.add(new Option("Bespoke: my own idea"));
+  DESIGNS.forEach(d=>d.cw.forEach(c=>fd.add(new Option(d.name+" ("+c.n+")"))));
+  const f=document.getElementById("enq");
+  f.addEventListener("submit",e=>{e.preventDefault();const val=id=>document.getElementById(id).value.trim();const err=document.getElementById("fErr");
+    if(!val("fName")){err.textContent="Please add your name so we know who to ask for.";return}
+    if(val("fPhone").replace(/\D/g,"").length<10){err.textContent="Please add a 10-digit phone number so we can call you back.";return}
+    err.textContent="";
+    const msg="Hi "+CONFIG.brand+", I'd like a free site visit.\nName: "+val("fName")+"\nPhone: "+val("fPhone")+"\nArea: "+(val("fArea")||"-")+"\nSpace: "+val("fSpace")+"\nDesign: "+val("fDesign")+"\nWall size: "+(val("fSize")||"-")+(val("fMsg")?"\nNotes: "+val("fMsg"):"");
+    document.getElementById("sentText").textContent=msg;document.getElementById("sentWa").href=waLink(msg);document.getElementById("sent").hidden=false;
+    document.getElementById("sentCopy").onclick=()=>copy(msg);
+  });
+}
+
+wire();buildHero();buildGallery();buildViz();buildPricing();buildSpaces();buildForm();
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{document.querySelectorAll(".card").forEach((c,i)=>{const d=DESIGNS[i];enqueue(()=>paint(c.querySelector("canvas"),d,state.cw[d.id]))})},300)});
+</script>
+</body>
+</html>
